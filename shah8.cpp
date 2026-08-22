@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node{
+    int data;
+    struct node *nextnode;
+};
+
+void display(struct node* ptr){
+    while(ptr != NULL){
+        printf("%d",*(ptr) );
+        printf("\n");
+        ptr = ptr->nextnode;
+    }
+}
+
+int main(){
+    struct node* first =(struct node*) malloc(sizeof(struct node));
+    struct node* second =(struct node*) malloc(sizeof(struct node));
+    struct node* third =(struct node*) malloc(sizeof(struct node));
+    struct node* fourth =(struct node*) malloc(sizeof(struct node));
+    
+    
+    first ->data = 1;
+    first->nextnode = second;
+    
+    second ->data = 2;
+    second ->nextnode = third;
+    
+    third ->data = 3;
+    third ->nextnode = fourth;
+    
+    fourth ->data  = 4;
+    fourth ->nextnode = NULL;
+    
+    // display(first);
+    
+    // insert at beginning
+    
+    struct node* fifth =(struct node*) malloc(sizeof(struct node));
+    printf("Enter the value of node you want to enter : ");
+    scanf("%d", &fifth->data);
+    
+    fifth->nextnode = first;
+    first = fifth;
+    
+    display(first);
+    
+    
+    
+}
